@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://clp45mpouxk7o"]
+
+[ext_resource type="FontFile" uid="uid://y6cjfa4ywwro" path="res://Fonts/PixelOperatorHB.ttf" id="1_1c4p7"]
+[ext_resource type="Script" uid="uid://co1t1xn4sn0bm" path="res://uni_text.gd" id="1_qbipd"]
+[ext_resource type="PackedScene" uid="uid://bq2h1i5aw06uy" path="res://Ui.tscn" id="3_coky7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qbipd"]
+font = ExtResource("1_1c4p7")
+font_size = 24
+
+[node name="UniText" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qbipd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 637.0
+offset_bottom = 479.0
+label_settings = SubResource("LabelSettings_qbipd")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Ui" parent="." instance=ExtResource("3_coky7")]

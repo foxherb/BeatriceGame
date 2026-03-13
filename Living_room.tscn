@@ -1,0 +1,303 @@
+[gd_scene load_steps=35 format=3 uid="uid://bn0ul8gy8kufj"]
+
+[ext_resource type="Script" uid="uid://c3v8fq86aeap8" path="res://living_room.gd" id="1_ckuqk"]
+[ext_resource type="Texture2D" uid="uid://e7wuf5ioxs1k" path="res://Sprites/stue.png" id="1_lhbg1"]
+[ext_resource type="Texture2D" uid="uid://tco73faicfoj" path="res://Sprites/New Piskel(4).png" id="2_7teyr"]
+[ext_resource type="PackedScene" uid="uid://261lwyvcarsx" path="res://Player.tscn" id="2_ckuqk"]
+[ext_resource type="PackedScene" uid="uid://bq2h1i5aw06uy" path="res://Ui.tscn" id="3_lhbg1"]
+[ext_resource type="Script" uid="uid://ce772kv2ho77w" path="res://coffee_machine.gd" id="5_28xy7"]
+[ext_resource type="Script" uid="uid://c11kqdummpatq" path="res://door_bedroom.gd" id="7_fjcwj"]
+[ext_resource type="Script" uid="uid://b0vgy20k66ewt" path="res://door_confirm.gd" id="8_hyuq6"]
+[ext_resource type="Script" uid="uid://du0i42oejldqb" path="res://fridge.gd" id="9_j21x8"]
+[ext_resource type="Script" uid="uid://clb0ugmh6qhwe" path="res://stove.gd" id="10_qlv2t"]
+[ext_resource type="Script" uid="uid://dna0hot1atp34" path="res://bookchairinter.gd" id="11_iobbd"]
+[ext_resource type="Script" uid="uid://ejytgwoa43mw" path="res://tv_sofa.gd" id="12_5ivp7"]
+[ext_resource type="Script" uid="uid://chonmrlwwntm0" path="res://dinner_table.gd" id="13_hljbs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1j4w"]
+size = Vector2(117, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjqbi"]
+size = Vector2(120, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmviy"]
+size = Vector2(100, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j21x8"]
+size = Vector2(90, 71)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7teyr"]
+size = Vector2(540, 345)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjcwj"]
+size = Vector2(580, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hyuq6"]
+size = Vector2(437.5, 351)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlv2t"]
+size = Vector2(122, 569)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iobbd"]
+size = Vector2(366, 89)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ivp7"]
+size = Vector2(86, 894)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hljbs"]
+size = Vector2(646, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6wtv"]
+size = Vector2(60, 148)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ece2v"]
+a = Vector2(2, -138)
+b = Vector2(2, 103)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i71yi"]
+size = Vector2(20.25, 216)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ece2v"]
+size = Vector2(300, 259)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i401d"]
+size = Vector2(197, 155)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uemce"]
+size = Vector2(75, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5axmc"]
+size = Vector2(81, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66umx"]
+size = Vector2(214, 244)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjm66"]
+size = Vector2(299, 94)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fgarm"]
+size = Vector2(253, 173)
+
+[node name="Living_room" type="Node2D"]
+position = Vector2(-2, 4)
+script = ExtResource("1_ckuqk")
+
+[node name="Black backdrop" type="Sprite2D" parent="."]
+position = Vector2(671, 449)
+scale = Vector2(53.250004, 38.48437)
+texture = ExtResource("2_7teyr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 960.0
+texture = ExtResource("1_lhbg1")
+
+[node name="Player" parent="." instance=ExtResource("2_ckuqk")]
+position = Vector2(741, 216)
+
+[node name="CutsceneCamera" type="Camera2D" parent="."]
+
+[node name="CutscenePoints" type="Node2D" parent="."]
+
+[node name="CamStart" type="Marker2D" parent="CutscenePoints"]
+position = Vector2(694, 75)
+
+[node name="MainDoorFocus" type="Marker2D" parent="CutscenePoints"]
+position = Vector2(724, 858)
+
+[node name="GardenFocus" type="Marker2D" parent="CutscenePoints"]
+position = Vector2(342, 210)
+
+[node name="Ui" parent="." instance=ExtResource("3_lhbg1")]
+
+[node name="CoffeeMachine" type="Area2D" parent="." groups=["interactable"]]
+position = Vector2(1124, 370)
+script = ExtResource("5_28xy7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoffeeMachine"]
+position = Vector2(10, 6)
+shape = SubResource("RectangleShape2D_o1j4w")
+
+[node name="Door_Bedroom" type="Area2D" parent="."]
+position = Vector2(687, -6)
+script = ExtResource("7_fjcwj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door_Bedroom"]
+position = Vector2(6, 18)
+shape = SubResource("RectangleShape2D_mjqbi")
+
+[node name="Door_Uni" type="Area2D" parent="."]
+position = Vector2(728, 844)
+script = ExtResource("8_hyuq6")
+question = "Go to uni? (You can’t come back)"
+target_scene = "res://UniText.tscn"
+cancel_text = "I should probably look around first..."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door_Uni"]
+position = Vector2(0, 38)
+shape = SubResource("RectangleShape2D_hmviy")
+
+[node name="Door_Garden" type="Area2D" parent="."]
+position = Vector2(542, 306)
+script = ExtResource("8_hyuq6")
+question = "Go check the garden? (You can’t come back)"
+target_scene = "res://Garden.tscn"
+cancel_text = "Maybe I should think for a second..."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door_Garden"]
+position = Vector2(35, 25.5)
+shape = SubResource("RectangleShape2D_j21x8")
+
+[node name="Collision_walls" type="Node2D" parent="."]
+
+[node name="Wall_garden" type="StaticBody2D" parent="Collision_walls"]
+position = Vector2(362, 230)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_walls/Wall_garden"]
+position = Vector2(-1, -69.5)
+shape = SubResource("RectangleShape2D_7teyr")
+
+[node name="bedroom" type="StaticBody2D" parent="Collision_walls"]
+position = Vector2(699, -60)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_walls/bedroom"]
+position = Vector2(12, 22)
+shape = SubResource("RectangleShape2D_fjcwj")
+
+[node name="Kitchen_top" type="StaticBody2D" parent="Collision_walls"]
+position = Vector2(976, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_walls/Kitchen_top"]
+position = Vector2(-1.75, 154.5)
+shape = SubResource("RectangleShape2D_hyuq6")
+
+[node name="Kitchen_side" type="StaticBody2D" parent="Collision_walls"]
+position = Vector2(1217, 519)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_walls/Kitchen_side"]
+position = Vector2(-51, 22.5)
+shape = SubResource("RectangleShape2D_qlv2t")
+
+[node name="Kitchen_bottom" type="StaticBody2D" parent="Collision_walls"]
+position = Vector2(1016, 821)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_walls/Kitchen_bottom"]
+position = Vector2(-4, -34.5)
+shape = SubResource("RectangleShape2D_iobbd")
+
+[node name="Livingroom_left" type="StaticBody2D" parent="Collision_walls"]
+position = Vector2(14, 458)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_walls/Livingroom_left"]
+position = Vector2(33, -16)
+shape = SubResource("RectangleShape2D_5ivp7")
+
+[node name="Livingroom_bottom" type="StaticBody2D" parent="Collision_walls"]
+position = Vector2(326, 885)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_walls/Livingroom_bottom"]
+position = Vector2(32, -25)
+shape = SubResource("RectangleShape2D_hljbs")
+
+[node name="Door_uni" type="StaticBody2D" parent="Collision_walls"]
+position = Vector2(838, 883)
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Collision_walls/Door_uni"]
+position = Vector2(-41.000015, 11.999975)
+scale = Vector2(3.9272914, 1.464674)
+polygon = PackedVector2Array(-32.083176, 0, -5.601822, 0, -5.8564606, -45.74402, 16.805481, -45.74402, 16.550842, 12.289429, -1, 12, -30.993896, 12.07251)
+
+[node name="Wall_extra1" type="StaticBody2D" parent="Collision_walls"]
+position = Vector2(786, 405)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_walls/Wall_extra1"]
+position = Vector2(-2, 5)
+shape = SubResource("RectangleShape2D_a6wtv")
+
+[node name="Wall_extra2" type="StaticBody2D" parent="Collision_walls"]
+position = Vector2(628, 381)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_walls/Wall_extra2"]
+shape = SubResource("SegmentShape2D_ece2v")
+
+[node name="Wall_extra3" type="StaticBody2D" parent="Collision_walls"]
+position = Vector2(839, 709)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_walls/Wall_extra3"]
+position = Vector2(-1.125, 13)
+shape = SubResource("RectangleShape2D_i71yi")
+
+[node name="Wall_extra4" type="StaticBody2D" parent="Collision_walls"]
+position = Vector2(839, 709)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_walls/Wall_extra4"]
+position = Vector2(-221, 14)
+shape = SubResource("RectangleShape2D_i71yi")
+
+[node name="Collision_furniture" type="Node2D" parent="."]
+
+[node name="Sofa_Tv_table" type="StaticBody2D" parent="Collision_furniture"]
+position = Vector2(217, 680)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_furniture/Sofa_Tv_table"]
+position = Vector2(23, 16.5)
+shape = SubResource("RectangleShape2D_ece2v")
+
+[node name="Dinner_table" type="StaticBody2D" parent="Collision_furniture"]
+position = Vector2(218, 405)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_furniture/Dinner_table"]
+position = Vector2(2.5, 5.5)
+shape = SubResource("RectangleShape2D_i401d")
+
+[node name="book_chair" type="StaticBody2D" parent="Collision_furniture"]
+position = Vector2(491, 690)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collision_furniture/book_chair"]
+polygon = PackedVector2Array(72, -71, 116, -75, 116, 135, -102, 135, -99, -121, -47, -127, -3, -79, -41, -4, -96, -4, -92, 91, 75, 91)
+
+[node name="Interactable_livingroom" type="Node2D" parent="."]
+
+[node name="Fridge" type="Area2D" parent="Interactable_livingroom" groups=["interactable"]]
+position = Vector2(857, 290)
+script = ExtResource("9_j21x8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable_livingroom/Fridge"]
+position = Vector2(-4.5, 42)
+shape = SubResource("RectangleShape2D_uemce")
+
+[node name="Stove" type="Area2D" parent="Interactable_livingroom" groups=["interactable"]]
+position = Vector2(1148, 530)
+script = ExtResource("10_qlv2t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable_livingroom/Stove"]
+position = Vector2(-30.5, 2)
+shape = SubResource("RectangleShape2D_5axmc")
+
+[node name="Bookchairinter" type="Area2D" parent="Interactable_livingroom" groups=["interactable"]]
+position = Vector2(489, 688)
+script = ExtResource("11_iobbd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable_livingroom/Bookchairinter"]
+position = Vector2(9, 14)
+shape = SubResource("RectangleShape2D_66umx")
+
+[node name="Tv_sofa" type="Area2D" parent="Interactable_livingroom" groups=["interactable"]]
+position = Vector2(220, 622)
+script = ExtResource("12_5ivp7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable_livingroom/Tv_sofa"]
+position = Vector2(18.5, -37)
+shape = SubResource("RectangleShape2D_hjm66")
+
+[node name="Dinner_table" type="Area2D" parent="Interactable_livingroom" groups=["interactable"]]
+position = Vector2(253, 411)
+script = ExtResource("13_hljbs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable_livingroom/Dinner_table"]
+position = Vector2(-35.5, 5.5)
+shape = SubResource("RectangleShape2D_fgarm")
+
+[connection signal="body_entered" from="Door_Bedroom" to="Door_Bedroom" method="_on_body_entered"]
+[connection signal="body_entered" from="Door_Uni" to="Door_Uni" method="_on_body_entered"]
+[connection signal="body_entered" from="Door_Garden" to="Door_Garden" method="_on_body_entered"]

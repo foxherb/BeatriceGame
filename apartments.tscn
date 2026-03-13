@@ -1,0 +1,156 @@
+[gd_scene load_steps=21 format=3 uid="uid://btfh8ur7t7tyl"]
+
+[ext_resource type="Texture2D" uid="uid://tco73faicfoj" path="res://Sprites/New Piskel(4).png" id="1_l7jw2"]
+[ext_resource type="Texture2D" uid="uid://cnnw5jyqpmdo5" path="res://Sprites/Apartments.png" id="1_to16t"]
+[ext_resource type="Script" uid="uid://c0yh0f864r7cd" path="res://apartments.gd" id="1_w4mqr"]
+[ext_resource type="Texture2D" uid="uid://df843kbn8d3g1" path="res://Sprites/apatments_dør.png" id="2_l7jw2"]
+[ext_resource type="PackedScene" uid="uid://261lwyvcarsx" path="res://Player.tscn" id="2_pt3ps"]
+[ext_resource type="PackedScene" uid="uid://bq2h1i5aw06uy" path="res://Ui.tscn" id="3_l7jw2"]
+[ext_resource type="Texture2D" uid="uid://cq13ee7kcyj8" path="res://Sprites/Apartments_lyktestolper.png" id="4_lvmld"]
+[ext_resource type="Script" uid="uid://tcwmvgy88mg4" path="res://door_path_forest_apartments_back.gd" id="7_lvmld"]
+[ext_resource type="Script" uid="uid://bg7bgmuppmb4l" path="res://enter_apartment_door.gd" id="9_qa08h"]
+[ext_resource type="Script" uid="uid://bwqyr7pxeb5w6" path="res://npc.gd" id="10_le123"]
+[ext_resource type="Texture2D" uid="uid://cf1dmuhm36dxj" path="res://Sprites/New Piskel(9).png" id="11_nn67c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pe0sa"]
+size = Vector2(195, 109)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pt3ps"]
+size = Vector2(1937, 170)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7jw2"]
+size = Vector2(1936, 67)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvmld"]
+size = Vector2(189, 1210)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4mqr"]
+size = Vector2(68, 1147)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qa08h"]
+size = Vector2(485, 608)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87rl2"]
+size = Vector2(599, 536)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_le123"]
+size = Vector2(46, 208)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nn67c"]
+size = Vector2(157, 190)
+
+[node name="Apartments" type="Node2D"]
+script = ExtResource("1_w4mqr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(932, 483)
+scale = Vector2(87.64844, 85.10157)
+texture = ExtResource("1_l7jw2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_to16t")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_l7jw2")
+
+[node name="SketchyNPC" type="Area2D" parent="." groups=["interactable"]]
+position = Vector2(613, 85)
+script = ExtResource("10_le123")
+
+[node name="Sprite2D" type="Sprite2D" parent="SketchyNPC"]
+position = Vector2(-6, -3)
+scale = Vector2(1.09375, 1.046875)
+texture = ExtResource("11_nn67c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SketchyNPC"]
+position = Vector2(-10, 43)
+shape = SubResource("RectangleShape2D_pe0sa")
+
+[node name="Player" parent="." instance=ExtResource("2_pt3ps")]
+position = Vector2(189, 687)
+
+[node name="Ui" parent="." instance=ExtResource("3_l7jw2")]
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = -2.0
+offset_top = 5.0
+offset_right = 1918.0
+offset_bottom = 1085.0
+texture = ExtResource("4_lvmld")
+
+[node name="collision" type="Node2D" parent="."]
+
+[node name="Topapartments" type="StaticBody2D" parent="collision"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision/Topapartments"]
+position = Vector2(958.5, -75)
+shape = SubResource("RectangleShape2D_pt3ps")
+
+[node name="Bottomaparmtenst" type="StaticBody2D" parent="collision"]
+position = Vector2(2, 1089)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision/Bottomaparmtenst"]
+position = Vector2(958, 23.5)
+shape = SubResource("RectangleShape2D_l7jw2")
+
+[node name="Rightapartments" type="StaticBody2D" parent="collision"]
+position = Vector2(2100, 573)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision/Rightapartments"]
+position = Vector2(-84.5, 23)
+shape = SubResource("RectangleShape2D_lvmld")
+
+[node name="leftapartments" type="StaticBody2D" parent="collision"]
+position = Vector2(-60, 622)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision/leftapartments"]
+position = Vector2(24, -54.5)
+shape = SubResource("RectangleShape2D_w4mqr")
+
+[node name="apartment1" type="StaticBody2D" parent="collision"]
+position = Vector2(228, 302)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision/apartment1"]
+position = Vector2(9.5, -61)
+shape = SubResource("RectangleShape2D_qa08h")
+
+[node name="aparment2" type="StaticBody2D" parent="collision"]
+position = Vector2(1019, 248)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision/aparment2"]
+position = Vector2(-2.5, 23)
+shape = SubResource("RectangleShape2D_87rl2")
+
+[node name="apartment3" type="StaticBody2D" parent="collision"]
+position = Vector2(237, 953)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collision/apartment3"]
+polygon = PackedVector2Array(-239, -194, 234, -194, 240, 17, 414, 40, 483, 8, 491, -166, 1105, -166, 1110, 5, 1324, -6, 1361, 45, 1361, 125, -242, 131)
+
+[node name="apartment48" type="StaticBody2D" parent="collision"]
+position = Vector2(1758, 240)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collision/apartment48"]
+polygon = PackedVector2Array(-272, -241, -269, -54, -189, 305, 166, 303, 158, -225)
+
+[node name="Door_path_forest_apartments_back" type="Area2D" parent="."]
+position = Vector2(0, 630)
+script = ExtResource("7_lvmld")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door_path_forest_apartments_back"]
+position = Vector2(13, 20)
+shape = SubResource("RectangleShape2D_le123")
+
+[node name="Door_EnterApartment" type="Area2D" parent="." groups=["interactable"]]
+position = Vector2(1856, 510)
+script = ExtResource("9_qa08h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door_EnterApartment"]
+position = Vector2(5.5, 0)
+shape = SubResource("RectangleShape2D_nn67c")
+
+[connection signal="body_entered" from="Door_path_forest_apartments_back" to="Door_path_forest_apartments_back" method="_on_body_entered"]

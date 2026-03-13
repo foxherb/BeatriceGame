@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqqd6g6cqwyf4"]
+
+[ext_resource type="Script" uid="uid://cqbrxp5ymwxqy" path="res://ending_scene.gd" id="1_wo5jl"]
+[ext_resource type="FontFile" uid="uid://y6cjfa4ywwro" path="res://Fonts/PixelOperatorHB.ttf" id="2_4l4mv"]
+[ext_resource type="AudioStream" uid="uid://h8f1pj2wh7ps" path="res://SFX/text-blip.ogg" id="3_ayyxh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ayyxh"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[node name="EndingScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wo5jl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="EndingImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="AnimHolder" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -149.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ayyxh")
+
+[node name="StoryLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_4l4mv")
+
+[node name="TextBlip" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ayyxh")
+bus = &"SFX"

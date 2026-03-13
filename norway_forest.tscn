@@ -1,0 +1,159 @@
+[gd_scene load_steps=19 format=3 uid="uid://d6kidy2arcjv"]
+
+[ext_resource type="Script" uid="uid://ttf1r36ys1ke" path="res://norway_forest.gd" id="1_t5ji4"]
+[ext_resource type="Texture2D" uid="uid://tco73faicfoj" path="res://Sprites/New Piskel(4).png" id="2_3x5xt"]
+[ext_resource type="Texture2D" uid="uid://nklvl2kk41gg" path="res://Sprites/forest1.png" id="2_t5ji4"]
+[ext_resource type="PackedScene" uid="uid://261lwyvcarsx" path="res://Player.tscn" id="3_i3wr7"]
+[ext_resource type="Texture2D" uid="uid://cmidc2l3833p7" path="res://Sprites/ice for forest1.png" id="4_66s1n"]
+[ext_resource type="PackedScene" uid="uid://bq2h1i5aw06uy" path="res://Ui.tscn" id="4_rs1d1"]
+[ext_resource type="Script" uid="uid://cijg8y3yjg5uc" path="res://door_path_forest.gd" id="6_i3wr7"]
+[ext_resource type="Script" uid="uid://b18cysf63q1ou" path="res://realization.gd" id="8_385tc"]
+[ext_resource type="Script" uid="uid://c4dbqk7n2t4ep" path="res://music_sheet.gd" id="9_yyjm6"]
+[ext_resource type="Texture2D" uid="uid://ci8fq84c1on1w" path="res://Sprites/Notes.png" id="10_xg3pm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3x5xt"]
+size = Vector2(106, 1079)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3wr7"]
+size = Vector2(1923, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rs1d1"]
+size = Vector2(139, 1152)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qasyi"]
+size = Vector2(1923, 453)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4t1mf"]
+size = Vector2(202, 266)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmwwq"]
+size = Vector2(75, 126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pishb"]
+size = Vector2(59, 457)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vp70t"]
+size = Vector2(102, 92.5)
+
+[node name="Norway_Forest" type="Node2D"]
+script = ExtResource("1_t5ji4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1320, 942.00037)
+scale = Vector2(98.89063, 75.59375)
+texture = ExtResource("2_3x5xt")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 640.0
+offset_bottom = 960.0
+texture = ExtResource("2_t5ji4")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_66s1n")
+
+[node name="Player" parent="." instance=ExtResource("3_i3wr7")]
+position = Vector2(120, 708)
+
+[node name="Ui" parent="." instance=ExtResource("4_rs1d1")]
+
+[node name="ColorRect" type="ColorRect" parent="Ui"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.24300002)
+
+[node name="Collision_walls" type="Node2D" parent="."]
+
+[node name="Left wall" type="StaticBody2D" parent="Collision_walls"]
+position = Vector2(-97, 615)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_walls/Left wall"]
+position = Vector2(43, -74.5)
+shape = SubResource("RectangleShape2D_3x5xt")
+
+[node name="Bottom_wall" type="StaticBody2D" parent="Collision_walls"]
+position = Vector2(802, 1133)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_walls/Bottom_wall"]
+position = Vector2(159.5, -21)
+shape = SubResource("RectangleShape2D_i3wr7")
+
+[node name="Right_wall" type="StaticBody2D" parent="Collision_walls"]
+position = Vector2(2049, 562)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_walls/Right_wall"]
+position = Vector2(-59.5, 8)
+shape = SubResource("RectangleShape2D_rs1d1")
+
+[node name="top_wall" type="StaticBody2D" parent="Collision_walls"]
+position = Vector2(870, -80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_walls/top_wall"]
+position = Vector2(92.5, 216.5)
+shape = SubResource("RectangleShape2D_qasyi")
+
+[node name="Top_forest" type="StaticBody2D" parent="Collision_walls"]
+position = Vector2(142, 414)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collision_walls/Top_forest"]
+polygon = PackedVector2Array(-142, -50, -142, 154, -7, 154, 85, 143, 259, 104, 327, 73, 365, 36, 379, 24, 452, 12, 660, -3, 712, 4, 788, -4, 878, 2, 940, -9, 1207, -42, 1366, -51)
+
+[node name="Bottom_forest" type="StaticBody2D" parent="Collision_walls"]
+position = Vector2(383, 1026)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collision_walls/Bottom_forest"]
+polygon = PackedVector2Array(-379, -222, -301, -236, -30, -80, 263, -58, 399, -85, 782, -89, 1353, -75, 1536, -64, 1536, 57, -386, 56)
+
+[node name="Middle_forest" type="StaticBody2D" parent="Collision_walls"]
+position = Vector2(1194, 732)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collision_walls/Middle_forest"]
+polygon = PackedVector2Array(725, 119, -405, 94, -814, 49, -814, -83, -583, -74, -558, -117, 94, -80, 88, -143, 413, -120, 417, -162, 722, -139)
+
+[node name="Ice" type="StaticBody2D" parent="Collision_walls"]
+position = Vector2(1830, 490)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_walls/Ice"]
+position = Vector2(-11, -6)
+shape = SubResource("RectangleShape2D_4t1mf")
+
+[node name="Door_path_forest" type="Area2D" parent="."]
+position = Vector2(1896, 903)
+script = ExtResource("6_i3wr7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door_path_forest"]
+position = Vector2(-8.5, 4)
+shape = SubResource("RectangleShape2D_nmwwq")
+
+[node name="Interactable" type="Node2D" parent="."]
+
+[node name="Realization" type="Area2D" parent="Interactable"]
+position = Vector2(456, 723)
+script = ExtResource("8_385tc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable/Realization"]
+position = Vector2(-19.5, -1.5)
+shape = SubResource("RectangleShape2D_pishb")
+
+[node name="Sheet_1" type="Area2D" parent="Interactable" groups=["interactable"]]
+position = Vector2(1568, 472)
+script = ExtResource("9_yyjm6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactable/Sheet_1"]
+position = Vector2(1.0000076, -1.0000076)
+scale = Vector2(0.3, 0.3125)
+texture = ExtResource("10_xg3pm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable/Sheet_1"]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_vp70t")
+
+[node name="Spawn_From_Apartments" type="Marker2D" parent="."]
+position = Vector2(1841, 903)
+
+[connection signal="body_entered" from="Door_path_forest" to="Door_path_forest" method="_on_body_entered"]
+[connection signal="body_entered" from="Interactable/Realization" to="Interactable/Realization" method="_on_body_entered"]

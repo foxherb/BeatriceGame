@@ -1,0 +1,130 @@
+[gd_scene load_steps=17 format=3 uid="uid://ibwrsrrco6gw"]
+
+[ext_resource type="Texture2D" uid="uid://dgwf3c8cag4la" path="res://Sprites/soveromkris.png" id="1_1bgfo"]
+[ext_resource type="Script" uid="uid://djav763qpwt63" path="res://apartment_inside.gd" id="1_rf3c6"]
+[ext_resource type="Texture2D" uid="uid://tco73faicfoj" path="res://Sprites/New Piskel(4).png" id="1_tfq5l"]
+[ext_resource type="PackedScene" uid="uid://261lwyvcarsx" path="res://Player.tscn" id="2_epl13"]
+[ext_resource type="PackedScene" uid="uid://bq2h1i5aw06uy" path="res://Ui.tscn" id="3_tfq5l"]
+[ext_resource type="Texture2D" uid="uid://dke7vu3nej0x0" path="res://Sprites/Kris.png" id="4_jvh43"]
+[ext_resource type="Script" uid="uid://0qqlee6bopo3" path="res://kris_final_dialog.gd" id="5_jvh43"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31jjb"]
+size = Vector2(137.72925, 120.62676)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epl13"]
+size = Vector2(892, 322)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tfq5l"]
+size = Vector2(158, 822)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsdex"]
+size = Vector2(1040, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rf3c6"]
+size = Vector2(110, 943)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvh43"]
+size = Vector2(647, 145)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubcpv"]
+size = Vector2(157, 394)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0t5r5"]
+size = Vector2(86, 142)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lte08"]
+size = Vector2(376, 76)
+
+[node name="Apartment inside" type="Node2D"]
+script = ExtResource("1_rf3c6")
+
+[node name="blackback" type="Sprite2D" parent="."]
+position = Vector2(932, 483)
+scale = Vector2(87.64844, 85.10157)
+texture = ExtResource("1_tfq5l")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 931.0
+offset_bottom = 892.0
+texture = ExtResource("1_1bgfo")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Kris" type="Sprite2D" parent="."]
+position = Vector2(600, 245)
+scale = Vector2(1.73125, 1.7750001)
+texture = ExtResource("4_jvh43")
+
+[node name="KrisInteract" type="Area2D" parent="Kris" groups=["interactable"]]
+script = ExtResource("5_jvh43")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kris/KrisInteract"]
+position = Vector2(-7.509019, 34.366188)
+scale = Vector2(1.0000002, 1.0000002)
+shape = SubResource("RectangleShape2D_31jjb")
+
+[node name="Player" parent="." instance=ExtResource("2_epl13")]
+position = Vector2(723, 839)
+
+[node name="Ui" parent="." instance=ExtResource("3_tfq5l")]
+
+[node name="collision" type="Node2D" parent="."]
+
+[node name="Toproom" type="StaticBody2D" parent="collision"]
+position = Vector2(388, 150)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision/Toproom"]
+position = Vector2(58, 12)
+shape = SubResource("RectangleShape2D_epl13")
+
+[node name="Leftroom" type="StaticBody2D" parent="collision"]
+position = Vector2(-84, 523)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision/Leftroom"]
+position = Vector2(69, -45)
+shape = SubResource("RectangleShape2D_tfq5l")
+
+[node name="bottomroom" type="StaticBody2D" parent="collision"]
+position = Vector2(389, 936)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision/bottomroom"]
+position = Vector2(73, -16.5)
+shape = SubResource("RectangleShape2D_hsdex")
+
+[node name="rightroom" type="StaticBody2D" parent="collision"]
+position = Vector2(991, 498)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision/rightroom"]
+position = Vector2(-45, -27.5)
+shape = SubResource("RectangleShape2D_rf3c6")
+
+[node name="bed" type="StaticBody2D" parent="collision"]
+position = Vector2(255, 809)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision/bed"]
+position = Vector2(0.5, 5.5)
+shape = SubResource("RectangleShape2D_jvh43")
+
+[node name="shelf" type="StaticBody2D" parent="collision"]
+position = Vector2(832, 469)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision/shelf"]
+position = Vector2(16.5, 28)
+shape = SubResource("RectangleShape2D_ubcpv")
+
+[node name="nightstand" type="StaticBody2D" parent="collision"]
+position = Vector2(70, 668)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision/nightstand"]
+position = Vector2(33, 3)
+shape = SubResource("RectangleShape2D_0t5r5")
+
+[node name="desk" type="StaticBody2D" parent="collision"]
+position = Vector2(249, 325)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision/desk"]
+position = Vector2(3, 28)
+shape = SubResource("RectangleShape2D_lte08")
+
+[node name="Spawn_From_Outside" type="Marker2D" parent="."]
+position = Vector2(757, 827)

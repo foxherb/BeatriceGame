@@ -1,0 +1,86 @@
+[gd_scene load_steps=11 format=3 uid="uid://htho4a0m801k"]
+
+[ext_resource type="Script" uid="uid://kuy2h2jgfw72" path="res://gardenCutscene.gd" id="1_oy1xr"]
+[ext_resource type="Texture2D" uid="uid://jjye01csmht" path="res://Sprites/Portal.png" id="2_q3qa7"]
+[ext_resource type="PackedScene" uid="uid://bq2h1i5aw06uy" path="res://Ui.tscn" id="3_q3qa7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nf6w"]
+atlas = ExtResource("2_q3qa7")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydy5i"]
+atlas = ExtResource("2_q3qa7")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usse1"]
+atlas = ExtResource("2_q3qa7")
+region = Rect2(0, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32hjh"]
+atlas = ExtResource("2_q3qa7")
+region = Rect2(640, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn62j"]
+atlas = ExtResource("2_q3qa7")
+region = Rect2(0, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrs6k"]
+atlas = ExtResource("2_q3qa7")
+region = Rect2(640, 1280, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tkxi5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nf6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydy5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usse1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32hjh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn62j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrs6k")
+}],
+"loop": false,
+"name": &"play",
+"speed": 6.0
+}]
+
+[node name="GardenCutscene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oy1xr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimRoot" type="Node2D" parent="."]
+
+[node name="PortalAnim" type="AnimatedSprite2D" parent="AnimRoot"]
+position = Vector2(61, 2)
+scale = Vector2(0.775, 0.75)
+sprite_frames = SubResource("SpriteFrames_tkxi5")
+animation = &"play"
+frame = 5
+frame_progress = 1.0
+centered = false
+
+[node name="Ui" parent="." instance=ExtResource("3_q3qa7")]

@@ -1,0 +1,124 @@
+[gd_scene load_steps=10 format=3 uid="uid://bq2h1i5aw06uy"]
+
+[ext_resource type="PackedScene" uid="uid://dogthpxic7nkg" path="res://pause_menu.tscn" id="1_oahb0"]
+[ext_resource type="Script" uid="uid://dlai4cin4351b" path="res://dialogue_ui.gd" id="2_aegfc"]
+[ext_resource type="FontFile" uid="uid://y6cjfa4ywwro" path="res://Fonts/PixelOperatorHB.ttf" id="3_37rv8"]
+[ext_resource type="Script" uid="uid://bhfl5m0dbyn8a" path="res://choice_ui.gd" id="3_aegfc"]
+[ext_resource type="AudioStream" uid="uid://h8f1pj2wh7ps" path="res://SFX/text-blip.ogg" id="4_nxicu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aegfc"]
+bg_color = Color(0.004019165, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(15.30028, 15.30028, 15.30028, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nxicu"]
+font = ExtResource("3_37rv8")
+font_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxicu"]
+bg_color = Color(0.004019165, 0.004019165, 0.004019165, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(15.30028, 15.30028, 15.30028, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6mqjp"]
+
+[node name="Ui" type="CanvasLayer"]
+
+[node name="PauseMenu" parent="." instance=ExtResource("1_oahb0")]
+visible = false
+
+[node name="DialogueUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_aegfc")
+
+[node name="Panel" type="Panel" parent="DialogueUI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -140.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_aegfc")
+
+[node name="MarginContainer" type="MarginContainer" parent="DialogueUI/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Text" type="Label" parent="DialogueUI/Panel/MarginContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_nxicu")
+autowrap_mode = 2
+
+[node name="TextBlip" type="AudioStreamPlayer" parent="DialogueUI"]
+stream = ExtResource("4_nxicu")
+bus = &"SFX"
+
+[node name="ChoiceUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_aegfc")
+
+[node name="Panel" type="Panel" parent="ChoiceUI"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 96.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nxicu")
+
+[node name="Question" type="Label" parent="ChoiceUI/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_6mqjp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChoiceUI/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -33.0
+offset_right = 20.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="YesButton" type="Button" parent="ChoiceUI/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="ChoiceUI/Panel/VBoxContainer"]
+layout_mode = 2
+text = "No"

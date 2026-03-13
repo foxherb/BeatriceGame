@@ -1,0 +1,219 @@
+[gd_scene load_steps=24 format=3 uid="uid://xgovks576i2o"]
+
+[ext_resource type="Script" uid="uid://bn4xgpknhdsg1" path="res://main_menu.gd" id="1_i26rj"]
+[ext_resource type="Texture2D" uid="uid://bm3s1atm14nvf" path="res://Sprites/New Piskel(21).png" id="2_h7a2f"]
+[ext_resource type="FontFile" uid="uid://y6cjfa4ywwro" path="res://Fonts/PixelOperatorHB.ttf" id="3_h7a2f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qoqlk"]
+atlas = ExtResource("2_h7a2f")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwfq2"]
+atlas = ExtResource("2_h7a2f")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7r1g0"]
+atlas = ExtResource("2_h7a2f")
+region = Rect2(1280, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqjrg"]
+atlas = ExtResource("2_h7a2f")
+region = Rect2(1920, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2xy7"]
+atlas = ExtResource("2_h7a2f")
+region = Rect2(0, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fimr5"]
+atlas = ExtResource("2_h7a2f")
+region = Rect2(640, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7cqb"]
+atlas = ExtResource("2_h7a2f")
+region = Rect2(1280, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afec1"]
+atlas = ExtResource("2_h7a2f")
+region = Rect2(1920, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31qfy"]
+atlas = ExtResource("2_h7a2f")
+region = Rect2(0, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qie43"]
+atlas = ExtResource("2_h7a2f")
+region = Rect2(640, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61cf8"]
+atlas = ExtResource("2_h7a2f")
+region = Rect2(1280, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnncn"]
+atlas = ExtResource("2_h7a2f")
+region = Rect2(1920, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fnrj"]
+atlas = ExtResource("2_h7a2f")
+region = Rect2(0, 1920, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m04lp"]
+atlas = ExtResource("2_h7a2f")
+region = Rect2(640, 1920, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1thib"]
+atlas = ExtResource("2_h7a2f")
+region = Rect2(1280, 1920, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iht1c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qoqlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwfq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7r1g0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqjrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2xy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fimr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7cqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afec1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31qfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qie43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61cf8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnncn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fnrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m04lp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1thib")
+}],
+"loop": false,
+"name": &"open_gift",
+"speed": 10.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qoqlk"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iwfq2"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7a2f"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7r1g0"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i26rj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3.0000038, -98)
+scale = Vector2(1.0203124, 0.9859375)
+sprite_frames = SubResource("SpriteFrames_iht1c")
+animation = &"open_gift"
+frame = 14
+frame_progress = 1.0
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = -24.0
+offset_right = 36.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_h7a2f")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qoqlk")
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_h7a2f")
+theme_override_styles/normal = SubResource("StyleBoxFlat_iwfq2")
+text = "Quit"
+
+[node name="LetterButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_h7a2f")
+theme_override_styles/normal = SubResource("StyleBoxFlat_h7a2f")
+text = "Letter"
+
+[node name="IntroBubble" type="Panel" parent="."]
+layout_mode = 1
+offset_right = 276.0
+offset_bottom = 60.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7r1g0")
+
+[node name="MarginContainer" type="MarginContainer" parent="IntroBubble"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="IntroBubble/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_h7a2f")
+text = "  Happy birthday Beatrice!
+  This is my gift to you.
+  Press Start whenever you are ready.
+"
